@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
-import { Box, Text, Tooltip } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import { Export, CaretDown } from "@phosphor-icons/react";
+import SimpleTooltip from "./SimpleTooltip";
 
 const VECTOR_STYLES = ["halftone", "voronoi", "lineScan", "stipple"];
 
@@ -19,7 +20,7 @@ export default function ExportButton({ style, onExport, disabled }) {
 
   return (
     <Box position="relative" ref={ref}>
-      <Tooltip content="Export poster" openDelay={300}>
+      <SimpleTooltip label="Export poster">
         <Box
           as="button"
           h="40px"
@@ -47,7 +48,7 @@ export default function ExportButton({ style, onExport, disabled }) {
           </Text>
           <CaretDown size={14} color="#A3A3A3" />
         </Box>
-      </Tooltip>
+      </SimpleTooltip>
       {open && (
         <Box
           position="absolute"

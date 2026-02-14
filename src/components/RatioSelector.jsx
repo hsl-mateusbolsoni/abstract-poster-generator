@@ -1,4 +1,5 @@
-import { Box, Text, Tooltip } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
+import SimpleTooltip from "./SimpleTooltip";
 
 const RATIOS = [
   { id: "2:3", label: "2:3", value: 2 / 3 },
@@ -11,7 +12,7 @@ export default function RatioSelector({ activeRatio, onRatioChange }) {
   return (
     <Box display="flex" gap="4px">
       {RATIOS.map(({ id, label }) => (
-        <Tooltip key={id} content={`Ratio ${label}`} openDelay={300}>
+        <SimpleTooltip key={id} label={`Ratio ${label}`}>
           <Box
             as="button"
             h="40px"
@@ -37,7 +38,7 @@ export default function RatioSelector({ activeRatio, onRatioChange }) {
               {label}
             </Text>
           </Box>
-        </Tooltip>
+        </SimpleTooltip>
       ))}
     </Box>
   );

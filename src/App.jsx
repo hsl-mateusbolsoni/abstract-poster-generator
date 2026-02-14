@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Box, Text, Tooltip } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import { Shuffle, ArrowsClockwise, UploadSimple } from "@phosphor-icons/react";
 import UploadZone from "./components/UploadZone";
 import PosterPreview from "./components/PosterPreview";
@@ -9,6 +9,7 @@ import ParameterControls, {
 } from "./components/ParameterControls";
 import RatioSelector from "./components/RatioSelector";
 import ExportButton from "./components/ExportButton";
+import SimpleTooltip from "./components/SimpleTooltip";
 import useImageProcessor from "./hooks/useImageProcessor";
 
 function App() {
@@ -39,7 +40,6 @@ function App() {
   }, [style, setParams]);
 
   const handleNewUpload = () => {
-    // Reset by reloading — simplest approach
     window.location.reload();
   };
 
@@ -84,7 +84,7 @@ function App() {
         </Box>
         <Box display="flex" alignItems="center" gap="8px">
           {sourceImage && (
-            <Tooltip content="Upload new image" openDelay={300}>
+            <SimpleTooltip label="Upload new image">
               <Box
                 as="button"
                 w="40px"
@@ -100,7 +100,7 @@ function App() {
               >
                 <UploadSimple size={18} color="#A3A3A3" />
               </Box>
-            </Tooltip>
+            </SimpleTooltip>
           )}
           <ExportButton
             style={style}
@@ -160,13 +160,12 @@ function App() {
             <Box w="1px" h="24px" bg="#262626" />
 
             {/* Color Mode Toggle */}
-            <Tooltip
-              content={
+            <SimpleTooltip
+              label={
                 colorMode === "grayscale"
                   ? "Switch to sampled colors"
                   : "Switch to grayscale"
               }
-              openDelay={300}
             >
               <Box
                 as="button"
@@ -211,12 +210,12 @@ function App() {
                   {colorMode === "sampled" ? "Color" : "B&W"}
                 </Text>
               </Box>
-            </Tooltip>
+            </SimpleTooltip>
 
             <Box w="1px" h="24px" bg="#262626" />
 
             {/* Randomize */}
-            <Tooltip content="Randomize parameters" openDelay={300}>
+            <SimpleTooltip label="Randomize parameters">
               <Box
                 as="button"
                 w="40px"
@@ -232,10 +231,10 @@ function App() {
               >
                 <Shuffle size={20} color="#A3A3A3" />
               </Box>
-            </Tooltip>
+            </SimpleTooltip>
 
             {/* Regenerate */}
-            <Tooltip content="Regenerate" openDelay={300}>
+            <SimpleTooltip label="Regenerate">
               <Box
                 as="button"
                 w="40px"
@@ -251,7 +250,7 @@ function App() {
               >
                 <ArrowsClockwise size={20} color="#A3A3A3" />
               </Box>
-            </Tooltip>
+            </SimpleTooltip>
           </Box>
 
           {/* Parameter sliders */}

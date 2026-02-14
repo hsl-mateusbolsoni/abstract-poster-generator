@@ -1,4 +1,4 @@
-import { Box, Text, Tooltip, Slider } from "@chakra-ui/react";
+import { Box, Text, Slider } from "@chakra-ui/react";
 
 const STYLE_PARAMS = {
   halftone: [
@@ -73,19 +73,17 @@ export default function ParameterControls({ style, params, onParamChange }) {
 
         return (
           <Box key={p.key} display="flex" alignItems="center" gap="16px">
-            <Tooltip content={p.label} openDelay={200}>
-              <Text
-                color="#A3A3A3"
-                fontSize="16px"
-                fontWeight="500"
-                minW="80px"
-                textAlign="right"
-                cursor="default"
-                fontFamily="'Manrope', sans-serif"
-              >
-                {p.label}
-              </Text>
-            </Tooltip>
+            <Text
+              color="#A3A3A3"
+              fontSize="16px"
+              fontWeight="500"
+              minW="80px"
+              textAlign="right"
+              cursor="default"
+              fontFamily="'Manrope', sans-serif"
+            >
+              {p.label}
+            </Text>
             <Box flex="1">
               <Slider.Root
                 min={p.min}

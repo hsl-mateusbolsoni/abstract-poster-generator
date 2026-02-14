@@ -1,4 +1,4 @@
-import { Box, Tooltip } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import {
   CirclesThree,
   SquaresFour,
@@ -7,6 +7,7 @@ import {
   Barcode,
   SortAscending,
 } from "@phosphor-icons/react";
+import SimpleTooltip from "./SimpleTooltip";
 
 const STYLES = [
   { id: "halftone", label: "Halftone", Icon: CirclesThree },
@@ -21,7 +22,7 @@ export default function StyleSelector({ activeStyle, onStyleChange }) {
   return (
     <Box display="flex" gap="4px">
       {STYLES.map(({ id, label, Icon }) => (
-        <Tooltip key={id} content={label} openDelay={300}>
+        <SimpleTooltip key={id} label={label}>
           <Box
             as="button"
             w="40px"
@@ -44,7 +45,7 @@ export default function StyleSelector({ activeStyle, onStyleChange }) {
               weight={activeStyle === id ? "fill" : "regular"}
             />
           </Box>
-        </Tooltip>
+        </SimpleTooltip>
       ))}
     </Box>
   );
