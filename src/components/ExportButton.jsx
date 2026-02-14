@@ -3,7 +3,10 @@ import { Box, Text } from "@chakra-ui/react";
 import { Export, CaretDown } from "@phosphor-icons/react";
 import SimpleTooltip from "./SimpleTooltip";
 
-const VECTOR_STYLES = ["halftone", "voronoi", "lineScan", "stipple"];
+const VECTOR_STYLES = [
+  "halftone", "voronoi", "lineScan", "stipple",
+  "topographic", "triangleMesh", "colorBlocks", "concentric",
+];
 
 export default function ExportButton({ style, onExport, disabled }) {
   const [open, setOpen] = useState(false);

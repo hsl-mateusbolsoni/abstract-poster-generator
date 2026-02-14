@@ -6,6 +6,14 @@ import {
   Sparkle,
   Barcode,
   SortAscending,
+  Square,
+  Mountains,
+  CirclesFour,
+  TextT,
+  Triangle,
+  ArrowsOutLineHorizontal,
+  Stack,
+  StackSimple,
 } from "@phosphor-icons/react";
 import SimpleTooltip from "./SimpleTooltip";
 
@@ -16,11 +24,19 @@ const STYLES = [
   { id: "stipple", label: "Stipple", Icon: Sparkle },
   { id: "lineScan", label: "Line Scan", Icon: Barcode },
   { id: "pixelSort", label: "Pixel Sort", Icon: SortAscending },
+  { id: "colorBlocks", label: "Color Blocks", Icon: Square },
+  { id: "topographic", label: "Topographic", Icon: Mountains },
+  { id: "concentric", label: "Concentric", Icon: CirclesFour },
+  { id: "ascii", label: "ASCII", Icon: TextT },
+  { id: "triangleMesh", label: "Triangle Mesh", Icon: Triangle },
+  { id: "slitScan", label: "Slit Scan", Icon: ArrowsOutLineHorizontal },
+  { id: "chromatic", label: "Chromatic", Icon: Stack },
+  { id: "depthContour", label: "Depth Contour", Icon: StackSimple },
 ];
 
 export default function StyleSelector({ activeStyle, onStyleChange }) {
   return (
-    <Box display="flex" gap="4px">
+    <Box display="flex" gap="2px" flexWrap="wrap" maxW="336px">
       {STYLES.map(({ id, label, Icon }) => (
         <SimpleTooltip key={id} label={label}>
           <Box
@@ -40,7 +56,7 @@ export default function StyleSelector({ activeStyle, onStyleChange }) {
             onClick={() => onStyleChange(id)}
           >
             <Icon
-              size={20}
+              size={18}
               color={activeStyle === id ? "#FAFAFA" : "#A3A3A3"}
               weight={activeStyle === id ? "fill" : "regular"}
             />
